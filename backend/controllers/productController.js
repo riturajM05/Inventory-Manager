@@ -22,18 +22,6 @@ const createProduct = async (req, res) => {
     }
 }
 
-//get route
-const getProductById = async (req, res) => {
-    try {
-        const { _id } = req.params;
-        const product = await Product.findById(_id);
-        res.status(200).json(product)
-    } catch (error) {
-        console.log(error.message);
-        res.status(404).json({success: false, message: error.message});
-    }
-}
-
 //put route
 const updateProduct = async (req, res) => {
     try {
@@ -58,4 +46,4 @@ const deleteProduct = async (req, res) => {
     }
 }
 
-export { createProduct, getAllProduct, getProductById, updateProduct, deleteProduct}
+export { createProduct, getAllProduct, updateProduct, deleteProduct}
