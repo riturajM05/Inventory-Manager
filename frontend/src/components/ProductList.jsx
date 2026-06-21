@@ -39,7 +39,7 @@ const ProductList = () => {
     return (
         <div className='w-[70%] mx-auto my-8'>
             <h1 className='font-serif text-4xl'>Products</h1>
-            {products.length === 0 ? (<p>No products present in the catalog</p>) : (
+            {products.length === 0 ? (<p>No products in the catalog</p>) : (
                 <div>
                     <p className='mb-5'>{products.length} items in the catalog</p>
                     <div className="border border-gray-300 rounded-xl">
