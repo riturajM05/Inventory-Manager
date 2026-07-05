@@ -1,8 +1,9 @@
 import "dotenv/config"
 import express from 'express';
 import mongoose from 'mongoose';
-import router from './routes/productRoute.js';
+import productRouter from './routes/productRoute.js';
 import cors from 'cors';
+import userRouter from "./routes/userRoute.js";
 
 const app = express();
 const port = 3000;
@@ -23,7 +24,8 @@ mongoose.connect(process.env.MONGODB_URI)
 });
 
 // router
-app.use("/api/products", router)
+app.use("/api/products", productRouter)
+app.use("/api/user", userRouter)
 
 app.listen(port, () => {
     console.log(`listening on ${port}`);

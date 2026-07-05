@@ -1,11 +1,12 @@
 import express from "express";
 import { createProduct, getAllProduct, updateProduct, deleteProduct } from "../controllers/productController.js";
 import validateproduct from "../middleware/validateProduct.js";
-const router = express.Router();
+import authUser from "../middleware/auth.js";
+const productRouter = express.Router();
 
-router.get("/list", getAllProduct);
-router.post("/create",validateproduct, createProduct);
-router.put("/modify/:_id",validateproduct, updateProduct);
-router.delete("/remove/:_id", deleteProduct);
+productRouter.get("/list", getAllProduct);
+productRouter.post("/create", authUser, validateproduct, createProduct);
+productRouter.put("/modify/:_id", authUser, validateproduct, updateProduct);
+productRouter.delete("/remove/:_id", authUser, deleteProduct);
 
-export default router;
+export default productRouter;
