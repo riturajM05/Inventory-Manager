@@ -1,4 +1,4 @@
-import userModel from "../models/users";
+import userModel from "../models/users.js";
 import bcrypt from 'bcrypt'
 import validator from 'validator';
 import jwt from 'jsonwebtoken';
@@ -29,7 +29,7 @@ const loginUser = async (req, res) => {
 }
 
 const registerUser = async (req, res) => {
-    const { email, password } = req.body;
+    const { name, email, password } = req.body;
     try {
         const exists = await userModel.findOne({ email })
         if (exists) {
@@ -44,6 +44,7 @@ const registerUser = async (req, res) => {
         const hashedPassword = await bcrypt.hash(password, salt)
 
         const newUser = new userModel({
+            name,
             email,
             password: hashedPassword
         })
