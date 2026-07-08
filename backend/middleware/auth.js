@@ -7,7 +7,7 @@ const authUser = (req, res, next) => {
             throw new Error("Not authorized, login again")
         }
 
-        const token_decode = jwt.verify(token, process.env.JWT_TOKEN);
+        const token_decode = jwt.verify(token, process.env.JWT_SECRET);
         req.body.userId = token_decode.id;
         next();
     } catch (error) {

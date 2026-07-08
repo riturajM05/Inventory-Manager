@@ -20,6 +20,7 @@ const ModifyProduct = () => {
             const existing = data.find((p) => p._id === id)
             if (!existing) {
                 setError("Product not found")
+                setLoading(false)
                 return
             }
 

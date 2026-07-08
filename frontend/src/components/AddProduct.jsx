@@ -19,7 +19,7 @@ function AddProduct({ onProductAdded }) {
             setLoading(true);
             const { data: newProduct } = await createProduct(formData);
             onProductAdded?.(newProduct);
-            setFormData({ name: '', price: '' });
+            setFormData({ name: '', price: '', inStock: true });
             setLoading(false)
             console.log("Item has been added to inventory successfully!")
         } catch (error) {
