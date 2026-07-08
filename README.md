@@ -1,4 +1,4 @@
-# softNexis Task 1
+# Inventory Manager
 
 A full-stack product management application with a React + Vite frontend and an Express + MongoDB backend. The app supports product listing, authentication, adding products, editing, and deletion.
 
